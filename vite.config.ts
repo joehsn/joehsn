@@ -5,7 +5,16 @@ import react from "@vitejs/plugin-react-swc";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // base: '/joehsn/'
+  base: '/',
+  build: {
+    rollupOptions: {
+      output: {
+        // Make sure to use ES modules for modern deployment
+        format: 'es',
+      },
+    },
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
